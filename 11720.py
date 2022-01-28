@@ -1,1 +1,0 @@
-print(list(map(int,list(input()))))
