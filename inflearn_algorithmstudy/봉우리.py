@@ -34,7 +34,7 @@ for i in range (n):
                 cnt+=1
 
         elif i == 0 and j == 0:
-            
+            nums.append(mountains[i][j])
     
 
 
