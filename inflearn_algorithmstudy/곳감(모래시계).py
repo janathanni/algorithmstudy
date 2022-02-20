@@ -30,8 +30,6 @@
 
 n = int(input())
 
-res1 = 0
-res2 = n
 
 a = [list(map(int, input().split())) for _ in range(n)]
 
@@ -47,3 +45,21 @@ for i in range(m):
     else:
         for _ in range(k):
             a[h-1].insert(0, a[h-1].pop())
+
+res = 0
+s = 0
+e = n-1
+
+for x in a:
+    for j in range(s, e+1):
+        res += a[i][j]
+    
+    if i < n//2:
+        s += 1
+        e -= 1
+    
+    else:
+        s -=1
+        e += 1
+
+print(res)
