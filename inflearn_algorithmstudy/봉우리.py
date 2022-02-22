@@ -1,42 +1,44 @@
+# n = int(input())
+
+# mountains = []
+
+# for _ in range (n):
+#     nums = list(map(int, input().split()))
+#     mountains.append(nums)
+
+# cnt = 0
+
+# for i in range (n):
+#     for j in range (n):
+        
+#         nums = []
+
+#         if i == 0 and j == 0:
+#             nums.append(mountains[i][j], mountains[i+1][j], mountains[i][j+1])
+#             if max(nums) == mountains[i][j]:
+#                 cnt+=1
+
+#         elif i == 0 and j == 0:
+#             nums.append(mountains[i][j])
+    
 n = int(input())
+a = [list(map(int, input().split())) for _ in range(n)]
 
-mountains = []
+dx = [-1, 0, -1, 0]
+dy = [0, 1, 0, -1] # 4방향 탐색. 
 
-for _ in range (n):
-    nums = list(map(int, input().split()))
-    mountains.append(nums)
+a.insert(0, [0]*n)
+a.append([0]*n)
 
-#current1 => index of lists. current2 => index of list.
-
-#if current1 == 0 and current2 == 0 // up and left is 0.
-#elif current2 == 0 // left is 0.
-#elif current1 == last and current2 ==0 // down and left is 0.
-
-#elif current1 == 0 and current == last //up and right is 0.
-#elif current2 == last  // right is 0.
-#elif current1 == last and current2 == last // down and right is 0.
-
-#buds[current1-1][current2] up
-#buds[current1+1][current2] down
-#buds[current1][current2-1] left
-#buds[current1][current2+1] right
+for x in a:
+    x.insert(0, 0)
+    x.append(0)
 
 cnt = 0
 
-for i in range (n):
-    for j in range (n):
-        
-        nums = []
+for i in range(1, n+1):
+    for j in range(1, n+1):
+        if all(a[i][j] > a[i+dx[k]][j+dy[k]] for k in range(4)):
+            cnt+=1
 
-        if i == 0 and j == 0:
-            nums.append(mountains[i][j], mountains[i+1][j], mountains[i][j+1])
-            if max(nums) == mountains[i][j]:
-                cnt+=1
-
-        elif i == 0 and j == 0:
-            nums.append(mountains[i][j])
-    
-
-
-
-
+print(cnt)
