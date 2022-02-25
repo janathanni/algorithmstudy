@@ -8,30 +8,30 @@ m = int(input())
 
 m_array = list(map(int, input().split()))
 
-lt = 0
-rt = n
-
 for i in m_array:
+    cnt = 2
     lt = 0
-    rt = n
-    
+    rt = len(n_array)
+
     while lt <= rt:
 
         middle = (lt+rt)//2
-
-        if middle >= n or middle < 0:
+        
+        if cnt > n:
             print(0)
             break
 
-        if i == n_array[middle]:
-            print(1)
-            break
-        
-        elif i > n_array[middle]:
-            lt = middle+1
-        
-        else:
-            rt = middle-1
-    
-    
+        if cnt <= n:
+            if i == n_array[middle]:
+                print(1)
+                break
+
+            elif i > n_array[middle]:
+                lt = middle+1
+                cnt *= 2
+            
+            else:
+                rt = middle-1
+                cnt *= 2
+
     

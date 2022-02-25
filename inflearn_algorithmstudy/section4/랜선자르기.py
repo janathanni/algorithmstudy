@@ -18,7 +18,7 @@ lt = 1
 rt = largest
 
 while lt <= rt:
-    mid = (lt+rt)//1
+    mid = (lt+rt)//2
 
     if Count(mid)>=n:
         res = mid
