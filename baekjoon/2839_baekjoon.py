@@ -1,7 +1,5 @@
 n = int(input())
 
-# 3kg and 5kg 
-
 res = 0
 
 # n // 5 5kg 봉지수 
@@ -10,13 +8,22 @@ res = 0
 nums = n//5
 res = n%5
 
-if res == 0 :
+max_nums = n//3
+
+if res == 0:
     print(nums)
 
-elif res%3==0:
-    nums += res//3
+else: 
+    while res != 0:
+        if res > n:
+            print(-1)
+            break
 
-    print(nums)
+        if res % 3 == 0:
+            nums += res//3
+            print(nums)
+            break
 
-else:
-    print(-1)
+        else:
+            nums -= 1
+            res += 5
