@@ -9,6 +9,6 @@ m_card = sys.stdin.readline().rstrip().split()
 
 for i in m_card:
     if i in cards:
-        print(cards[i], end = ' ')
+        print(1, end = ' ')
     else:
         print(0, end = ' ')
